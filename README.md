@@ -49,33 +49,31 @@ It shows the distance of a random variable from its mean. It is calcualted as
 
 # Program :
 ![ovi](https://github.com/Oviya49/Mean-and-Variance/assets/153576803/5930e60f-bfa1-4136-ad5e-ebd5099c2575)
-
 import numpy as np
-L = [int(i) for i in input().split()] # Enter the data as a list of integers separated by spaces
-N = len(L) # The number of data points
-M = max(L) # The maximum value in the data
-x = list() # A list of possible values of arrival
-f = list() # A list of frequencies of each value
+L = [int(i) for i in input().split()]
+N = len(L) 
+M = max(L) 
+x = list() 
+f = list() 
 for i in range(M+1):
-    c = 0 # A counter for the frequency
+    c = 0 
     for j in range(N):
-        if L[j] == i: # If the data point matches the value
-            c = c + 1 # Increment the counter
-    f.append(c) # Append the frequency to the list
-    x.append(i) # Append the value to the list
-sf = np.sum(f) # The sum of frequencies
-p = list() # A list of probabilities of each value
+        if L[j] == i: 
+            c = c + 1 
+    f.append(c)
+    x.append(i) 
+sf = np.sum(f)
+p = list()
 for i in range(M+1):
-    p.append(f[i]/sf) # Calculate the probability as frequency divided by sum of frequencies
-mean = np.inner(x, p) # Calculate the mean as the inner product of values and probabilities
-EX2 = np.inner(np.square(x), p) # Calculate the expected value of square of values
-var = EX2 - mean**2 # Calculate the variance as the difference between expected value of square and square of mean
-SD = np.sqrt(var) # Calculate the standard deviation as the square root of variance
-print("The Mean arrival rate is %.3f" %mean) # Print the mean
-print("The Variance of arrival from feeder is %.3f" %var) # Print the variance
-print("The Standard deviation of arrival from feeder is %.3F" %SD) # Print the standard deviation
+    p.append(f[i]/sf)
+mean = np.inner(x, p) 
+EX2 = np.inner(np.square(x), p) 
+var = EX2 - mean**2 
+SD = np.sqrt(var)
+print("The Mean arrival rate is %.3f" %mean) 
 
-
+print("The Variance of arrival from feeder is %.3f" %var)
+print("The Standard deviation of arrival from feeder is %.3F" %SD) 
 
 
 # Output : 
